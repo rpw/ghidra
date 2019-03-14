@@ -1641,8 +1641,7 @@ class XmlExporter(IdaXml):
             cmt: String containing type info.
         """
         # older versions of IDAPython returned a '\n' at end of cmt
-        while cmt[-1] == '\n':
-            cmt = cmt[:-1]
+        cmd = cmt.rstrip('\n')
         self.write_comment_element(TYPEINFO_CMT, cmt)
         
 
